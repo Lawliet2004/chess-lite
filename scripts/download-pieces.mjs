@@ -1,5 +1,4 @@
 import { mkdirSync, writeFileSync, existsSync } from "node:fs";
-import { dirname } from "node:path";
 
 const pieces = ["wp", "wn", "wb", "wr", "wq", "wk", "bp", "bn", "bb", "br", "bq", "bk"];
 const targetDir = "public/pieces/neo";

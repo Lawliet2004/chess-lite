@@ -2,13 +2,33 @@
   "name": "chesslite-review",
   "version": "0.2.0",
   "private": true,
+  "description": "Local-first Manifest V3 chess game review extension powered by Stockfish 18 Lite.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lawliet2004/chess-lite.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Lawliet2004/chess-lite/issues"
+  },
+  "homepage": "https://github.com/Lawliet2004/chess-lite#readme",
+  "keywords": [
+    "chess",
+    "stockfish",
+    "browser-extension",
+    "manifest-v3",
+    "game-analysis",
+    "react",
+    "vite"
+  ],
   "type": "module",
   "scripts": {
     "icons": "node scripts/generate-icons.mjs",
     "engine-assets": "node scripts/copy-engine.mjs",
     "download-pieces": "node scripts/download-pieces.mjs",
+    "demo": "vite --host 127.0.0.1",
     "dev": "vite build --watch",
     "build": "npm run icons && npm run engine-assets && npm run download-pieces && vite build && node scripts/build-content.mjs",
+    "quality": "npm run typecheck && npm run lint && npm test",
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "eslint .",

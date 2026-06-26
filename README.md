@@ -1,6 +1,19 @@
 # ChessLite Review
 
+![CI](https://github.com/Lawliet2004/chess-lite/actions/workflows/ci.yml/badge.svg)
+
 ChessLite Review is a Manifest V3 browser extension for private, local post-game chess analysis. It parses completed games or imported PGNs, evaluates every move with Stockfish 18 Lite WebAssembly, and presents an interactive Fluent-style review with accuracy scores, classifications, best moves, engine lines, critical moments, and an evaluation graph.
+
+## Demo
+
+Run the interactive demo without installing the extension:
+
+```powershell
+npm install
+npm run demo
+```
+
+Open the printed local URL and visit `/src/demo/demo.html`. The demo uses seeded review data and the same board, move list, details, evaluation graph, and export components as the extension.
 
 ## Fair-play boundary
 
@@ -29,9 +42,7 @@ Requirements: Node.js 20 or newer and npm.
 
 ```powershell
 npm install
-npm run typecheck
-npm test
-npm run lint
+npm run quality
 npm run build
 ```
 
@@ -76,6 +87,22 @@ The first pass is sequential for browser stability. Results are cached by FEN an
 ## Tests
 
 The Vitest suite covers PGN parsing/reconstruction, UCI parsing, evaluation normalization, mate handling, mover-perspective accuracy, classifications, fair-play gating, report summaries, and annotated PGN export. Sample PGNs are under `tests/fixtures`.
+
+Continuous integration runs typecheck, lint, tests, and production build on pushes and pull requests to `main`.
+
+## Project structure
+
+- `src/analysis` - Stockfish normalization, accuracy, classification, summaries, and exports
+- `src/chess` - PGN parsing, reconstruction, SAN/UCI helpers, and FEN utilities
+- `src/content` - supported-site adapters and fair-play gate
+- `src/engine` - Stockfish worker client and UCI parsing
+- `src/popup` and `src/sidepanel` - extension UI entries
+- `src/ui` - reusable board, graph, move list, metrics, and Fluent-style primitives
+- `src/demo` - public demo entry using deterministic sample review data
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the local workflow and pull request checklist. Report security issues using [SECURITY.md](SECURITY.md).
 
 ## Honest limitations
 
