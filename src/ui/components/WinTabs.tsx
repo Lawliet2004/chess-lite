@@ -1,0 +1,1 @@
+export function WinTabs<T extends string>({ tabs, value, onChange }: { tabs: readonly T[]; value: T; onChange: (value: T) => void }) { return <div className="row" role="tablist">{tabs.map((tab) => <button role="tab" aria-selected={tab === value} className={`button ${tab === value ? "primary" : ""}`} key={tab} onClick={() => onChange(tab)}>{tab}</button>)}</div>; }

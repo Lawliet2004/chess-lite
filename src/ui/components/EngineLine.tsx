@@ -1,0 +1,1 @@
+export function EngineLine({ moves = [] }: { moves?: string[] }) { return <div className="small muted" style={{ wordBreak: "break-word" }}>{moves.length ? moves.join(" ") : "No engine line available."}</div>; }
