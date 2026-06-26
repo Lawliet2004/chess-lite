@@ -6,6 +6,8 @@ ChessLite Review is a Manifest V3 browser extension for private, local post-game
 
 ## Demo
 
+![ChessLite Review interactive demo](docs/assets/chesslite-demo.gif)
+
 Run the interactive demo without installing the extension:
 
 ```powershell
